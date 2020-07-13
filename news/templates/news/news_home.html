@@ -1,0 +1,12 @@
+<h2>Hyper news</h2>
+
+{% for post_day in posts %}
+
+<h4>  {{ post_day.0 | date:"Y-m-d" }} </h4>
+<ul>
+    {% for post in post_day.1 %}
+    <li><a target="_blank" href="/news/{{post.link}}">{{post.title}}</a></li>
+    {% endfor %}
+</ul>
+
+{% endfor %}

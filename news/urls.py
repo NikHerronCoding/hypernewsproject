@@ -18,12 +18,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from news.views import HomePageView
+from news.views import MainPageView, NewsView
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', HomePageView.as_view(), name='total_home'),
-    path('news/', include('news.urls'), name='news_view'),
+
+    path('', MainPageView.as_view(), name='news-home'),
+    path('<str:post_id>' + '/', NewsView.as_view())
 
 ]
