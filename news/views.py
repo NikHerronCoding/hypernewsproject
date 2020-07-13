@@ -14,11 +14,9 @@ import os
 
 
 class HomePageView(View):
+
     def get(self, request, *args, **kwargs):
-        return HttpResponse('Coming Soon')
-
-
-
+        return HttpResponse('<h1>Coming soon</h1>')
 
 
 class MainPageView(View):
@@ -28,7 +26,9 @@ class MainPageView(View):
         context['posts'] = []
 
         posts_by_date = self.load_posts()
-        for key in sorted(posts_by_date.keys()):
+        keys = sorted(posts_by_date.keys())
+        keys.reverse()
+        for key in keys:
             context['posts'].append([key, posts_by_date[key]])
         return render(request, 'news/news_home.html', context=context)
 
