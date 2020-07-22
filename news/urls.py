@@ -18,12 +18,17 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from news.views import MainPageView, NewsView
+from news.views import MainPageView, NewsView, CreateNewsView
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 
 
 urlpatterns = [
-
     path('', MainPageView.as_view(), name='news-home'),
+    path('create/', CreateNewsView.as_view(), name='news-create'),
     path('<str:post_id>' + '/', NewsView.as_view())
-
 ]
+
+urlpatterns += static(settings.STATIC_URL)

@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<form method="post">
+
+{% csrf_token %}
+{{ form.as_p }}
+    <button type="submit">Submit</button>
+
+</form>
+
+<a target="_blank" href="/news/"> Back to news </a>

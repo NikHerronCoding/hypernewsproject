@@ -1,3 +1,6 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 <h2>Hyper news</h2>
 
 {% for post_day in posts %}
@@ -10,5 +13,13 @@
 </ul>
 
 {% endfor %}
+
+<form method="get">
+
+    <label for:"q"> Title Must Exactly Be:</label>
+    <input type="text" name="q">
+    <button type="submit">Submit</button>
+
+</form>
 
 <a target="_blank" href="/news/create/">Create New Post</a>
